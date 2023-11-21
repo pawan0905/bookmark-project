@@ -10,7 +10,8 @@ import {
 export class BookmarkService {
   constructor(private prisma: PrismaService) {}
 
-  async getBookmarkById(id: number) {
+  async getBookmarkById(id: number): Promise<any> {
+    console.log(id);
     const checkBookmarkById = await this.prisma.bookmark.findFirst({
       where: {
         id: id,
@@ -20,7 +21,7 @@ export class BookmarkService {
     if (!checkBookmarkById) {
       throw new HttpException('Bookmark not found', 404);
     }
-    return;
+    return { data: checkBookmarkById };
   }
   async getAllBookmarks(
     id: number,
@@ -54,7 +55,7 @@ export class BookmarkService {
         link: data.link,
       },
     });
-    return bookmark;
+    return { data: bookmark };
   }
   async updateBookmark(
     id: number,
@@ -82,9 +83,9 @@ export class BookmarkService {
         link: data.link,
       },
     });
-    return updateBookmark;
+    return { data: updateBookmark };
   }
-  async deleteBookmark(id: number) {
+  async deleteBookmark(id: number): Promise<any> {
     const checkBookmark = await this.prisma.bookmark.findFirst({
       where: {
         id: id,
@@ -94,12 +95,12 @@ export class BookmarkService {
     if (!checkBookmark) {
       throw new HttpException('Bookmark not found', 404);
     }
-    const deleteBookmark = await this.prisma.bookmark.update({
+    await this.prisma.bookmark.update({
       where: {
         id: id,
       },
       data: { is_deleted: true, updated_at: new Date() },
     });
-    return;
+    return { data: { message:'bookmark deleted successfully' } };
   }
 }
