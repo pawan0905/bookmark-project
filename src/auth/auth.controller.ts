@@ -1,5 +1,5 @@
 import { Body, Controller, Patch, Post, Get } from '@nestjs/common';
-import { SignupDto, UpdatePassword, signInDto } from './authd-to/auth.dto';
+import { SignupDto, UpdatePassword, signInDto } from './auth-dto/auth.dto';
 import { User } from 'src/constants/auth.decorator';
 import { AuthService } from './auth.service';
 import { JsonWebTokenService } from 'src/services/jwt.service';

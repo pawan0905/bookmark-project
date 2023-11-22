@@ -5,7 +5,7 @@ import {
   SignupDto,
   UpdatePassword,
   signInDto,
-} from './authd-to/auth.dto';
+} from './auth-dto/auth.dto';
 import * as bcrypt from 'bcrypt';
 import { JsonWebTokenService } from 'src/services/jwt.service';
 import { PrismaService } from 'src/services/prisma.services';
