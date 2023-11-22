@@ -47,7 +47,7 @@ export class BookmarkController {
     return this.bookmarkService.createBookmark(user['id'], data);
   }
   @Delete('/:id')
-  async deleteBookmark(@Param('id') id: number): Promise<any> {
+  async deleteBookmark(@Param('id', ParseIntPipe) id: number): Promise<any> {
     return this.bookmarkService.deleteBookmark(id);
   }
   @Put('/:id')
@@ -59,7 +59,7 @@ export class BookmarkController {
     return this.bookmarkService.updateBookmark(id, user['id'], data);
   }
   @Get('/:id')
-  async getBookmarkById(@Param('id') id: number): Promise<any> {
+  async getBookmarkById(@Param('id', ParseIntPipe) id: number): Promise<any> {
     return this.bookmarkService.getBookmarkById(id);
   }
 }

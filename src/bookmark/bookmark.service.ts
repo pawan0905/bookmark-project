@@ -101,6 +101,6 @@ export class BookmarkService {
       },
       data: { is_deleted: true, updated_at: new Date() },
     });
-    return { data: { message:'bookmark deleted successfully' } };
+    return { data: { message: 'bookmark deleted successfully' } };
   }
 }
