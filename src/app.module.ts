@@ -15,7 +15,6 @@ import { AuthModule } from './auth/auth.module';
     BookmarkModule,
     UsersModule,
     JwtModule.register({ secret: process.env.SECRET_KEY }),
-    UsersModule,
     AuthModule,
   ],
   controllers: [AppController],

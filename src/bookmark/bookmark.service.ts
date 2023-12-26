@@ -28,7 +28,7 @@ export class BookmarkService {
     page: number,
     perPage: number,
   ): Promise<any> {
-    //console.log(id, page, perPage);
+    console.log(id, page, perPage);
     const totalCount = await this.prisma.bookmark.count({
       where: {
         userId: id,
